@@ -1,11 +1,116 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>
-      TEST
-    </title>
-  </head>
-  <body>
-    7654
-  </body>
+<head>
+	<meta charset="UTF-8">
+	<title>🎧</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			max-width: 500px;
+			margin: 20px auto;
+			padding: 20px;
+			background: #1a1a1a;
+			color: white;
+			text-align: center;
+		}
+		.container {
+			background: #2d2d2d;
+			padding: 30px;
+			border-radius: 15px;
+		}
+		.cover {
+			width: 200px;
+			height: 200px;
+			border-radius: 10px;
+			margin: 0 auto 20px;
+			background: #333;
+			object-fit: cover;
+			border: 3px solid #444;
+		}
+		.track-info {
+			margin: 20px 0;
+		}
+		.track-name {
+			font-size: 18px;
+			font-weight: bold;
+			color: #fff;
+		}
+		.track-artist {
+			font-size: 14px;
+			color: #ccc;
+			margin-top: 5px;
+		}
+		/* Цвет для ошибки браузера */
+		.track-name.error { color: #ff4444 !important; }
+		.track-artist.error { color: #ff8888 !important; }
+		.channel-status {
+			display: flex;
+			justify-content: space-between;
+			margin: 15px 0;
+			padding: 10px;
+			background: #333;
+			border-radius: 8px;
+		}
+		.channel {
+			flex: 1;
+			padding: 10px;
+		}
+		.channel-a { border-left: 3px solid #007bff; }
+		.channel-b { border-left: 3px solid #28a745; }
+		.channel.active { background: #444; }
+		.channel-name {
+			font-weight: bold;
+			margin-bottom: 5px;
+		}
+		.channel-state {
+			font-size: 12px;
+			color: #aaa;
+		}
+		.channel-volume {
+			font-size: 11px;
+			color: #888;
+		}
+		button {
+			padding: 15px;
+			font-size: 16px;
+			border: none;
+			border-radius: 8px;
+			cursor: pointer;
+			color: white;
+			width: 100%;
+			margin: 10px 0;
+		}
+		button:disabled {
+			background: #666;
+		}
+		button:hover:not(:disabled) {
+			opacity: 0.9;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<img id="cover" class="cover" src="/images/default-cover.jpg" alt="Обложка">
+		<div class="track-info">
+			<div id="trackName" class="track-name">P2P Радио - Двухканальный</div>
+			<div id="trackArtist" class="track-artist">Нажмите кнопку ниже</div>
+		</div>
+		
+		<div class="channel-status">
+			<div id="channelA" class="channel channel-a">
+				<div class="channel-name">КАНАЛ A</div>
+				<div id="channelAState" class="channel-state">ожидание</div>
+				<div id="channelAVolume" class="channel-volume">громкость: 0%</div>
+			</div>
+			<div id="channelB" class="channel channel-b">
+				<div class="channel-name">КАНАЛ B</div>
+				<div id="channelBState" class="channel-state">ожидание</div>
+				<div id="channelBVolume" class="channel-volume">громкость: 0%</div>
+			</div>
+		</div>
+
+		<button id="connectBtn" onclick="connectToRadio()">🎵 ВКЛЮЧИТЬ РАДИО</button>
+	</div>
+    
+</body>
 </html>
